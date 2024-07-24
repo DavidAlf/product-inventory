@@ -1,0 +1,10 @@
+URLs del proyecto
+
+BD -> h2
+http://localhost:9090/inventoryProject/h2-console/login.jsp?jsessionid=60b0a64abe30ed67a1828ed442aead6e
+
+SWAGGR
+http://localhost:9090/inventoryProject/swagger-ui/index.html
+
+Catalogo de Postman
+\Product-Inventory.postman_collection.json
