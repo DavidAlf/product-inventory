@@ -79,14 +79,15 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
-    public ResponseEntity<?> updateCategory(String name, CategoryModel category) {
+    public ResponseEntity<?> updateCategory(Long categoryID, CategoryModel category) {
         log.info("[CategoryServiceImpl]=> updateCategory");
 
         try {
 
-            return categoryRepository.findByName(category.getName())
+            return categoryRepository.findById(categoryID)
                     .map(categorySaved -> {
                         categorySaved.setName(category.getName());
+                        categorySaved.setDescription(category.getDescription());
 
                         CategoryModel updatedCategory = categoryRepository.save(categorySaved);
 
@@ -110,7 +111,7 @@ public class CategoryServiceImpl implements ICategoryService {
                 categorySaved -> {
                     categoryRepository.delete(categorySaved);
 
-                    return ResponseEntity.ok("Categoria [" + categoryID + "] Eliminada correctamente.");
+                    return ResponseEntity.ok("{Categoria [" + categoryID + "] Eliminada correctamente.}");
                 }).orElse(ResponseEntity.notFound().build());
     }
 

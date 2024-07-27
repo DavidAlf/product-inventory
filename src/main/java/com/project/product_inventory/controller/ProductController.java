@@ -56,13 +56,13 @@ public class ProductController {
         return productService.getProductByName(name);
     }
 
-    @PutMapping("/{name}")
+    @PutMapping("/{productID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     @Operation(summary = "Actualiza Producto")
-    public ResponseEntity<?> updateProduct(@PathVariable("name") String name, @RequestBody ProductModel request) {
-        log.info("[ProductController] -> updateProduct [" + name + "]");
+    public ResponseEntity<?> updateProduct(@PathVariable("productID") Long productID, @RequestBody ProductModel request) {
+        log.info("[ProductController] -> updateProduct [" + productID + "]");
 
-        return productService.updateProduct(name, request);
+        return productService.updateProduct(productID, request);
 
     }
 

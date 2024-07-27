@@ -56,14 +56,14 @@ public class CategoryController {
         return categoryService.getCategoryByName(name);
     }
 
-    @PutMapping("/{name}")
+    @PutMapping("/{categoryID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     @Operation(summary = "Actualiza Categoria")
-    public ResponseEntity<?> updateCategory(@PathVariable("name") String name,
+    public ResponseEntity<?> updateCategory(@PathVariable("categoryID") Long categoryID,
             @RequestBody CategoryModel request) {
         log.info("[CategoryController] -> updateCategory [" + request.getName() + "]");
 
-        return categoryService.updateCategory(name, request);
+        return categoryService.updateCategory(categoryID, request);
 
     }
 

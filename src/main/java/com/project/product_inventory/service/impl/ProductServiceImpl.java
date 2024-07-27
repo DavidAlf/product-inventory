@@ -91,7 +91,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public ResponseEntity<?> updateProduct(String name, ProductModel product) {
+    public ResponseEntity<?> updateProduct(Long productID, ProductModel product) {
         log.info("[ProductServiceImpl]=> updateProduct");
 
         try {
@@ -102,7 +102,7 @@ public class ProductServiceImpl implements IProductService {
                 throw new ResourceNotFundExcepton("La categoria no existe: " + product.getCategory().getId());
             }
 
-            return productRepository.findByName(name)
+            return productRepository.findById(productID)
                     .map(productSaved -> {
                         productSaved.setName(product.getName());
                         productSaved.setDescription(product.getDescription());

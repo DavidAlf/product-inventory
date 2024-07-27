@@ -12,7 +12,7 @@ public interface ICategoryService {
 
     public ResponseEntity<?> getCategoryByName(String name);
 
-    ResponseEntity<?> updateCategory(String name, CategoryModel category);
+    ResponseEntity<?> updateCategory(Long categoryID, CategoryModel category);
 
     ResponseEntity<?> deleteCategory(Long categoryID);
 }

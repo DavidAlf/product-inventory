@@ -12,7 +12,7 @@ public interface IProductService {
 
     public ResponseEntity<?> getProductByName(String name);
 
-    ResponseEntity<?> updateProduct(String name, ProductModel product);
+    ResponseEntity<?> updateProduct(Long productID, ProductModel product);
 
     ResponseEntity<?> deleteProduct(Long productID);
 
